@@ -3,10 +3,10 @@
 
 const int MQ_PIN = A0; // ANALOG PIN 
 int gasLevel = 0;
-int Buzzer =D3;
-int Red= D5;
-int Yellow= D6;
-int Green= D7;
+int Buzzer =3;
+int Red= 5;
+int Yellow= 6;
+int Green= 7;
 String quality = "";
 
 
@@ -21,8 +21,8 @@ void setup()
   oled.putString("MONITORING ...");
   delay(2000);
   oled.setTextXY(4,2);
-  oled.putString("AQI:");
-   oled.setTextXY(6,2);
+  oled.putString("GAS LEVEL:");
+  oled.setTextXY(6,2);
   oled.putString("AIR QUALITY:");
   pinMode(MQ_PIN,INPUT); 
   pinMode(Buzzer,OUTPUT);
@@ -35,7 +35,7 @@ void setup()
 void loop()
 {
   int gasLevel = analogRead(MQ_PIN);
-  Serial.println("MQ 135 value");    
+  Serial.println("MQ 2 value");    
   Serial.println(gasLevel,DEC);
   if (gasLevel < 50 ) {
     quality = "GOOD !";
